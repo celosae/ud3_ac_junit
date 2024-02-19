@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 public class FactorialTest {
     
     @Test
-    public void CP_Factorial_5() {
+    public void CP1_Factorial_5() {
 	int n=5;
 	int resultado=Factorial.calculo(n);
 	int resultadoEsperado=120;
@@ -22,13 +22,13 @@ public class FactorialTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void CP_FactorialNumeroNegativo() {
+    public void CP2_FactorialNumeroNegativo() {
 	int n=-3;
         Factorial.calculo(n);
     }
 
     @Test(expected = ArithmeticException.class)
-    public void testOverflow() {
+    public void CP3_FactorialOverflow() {
     	int n= 30;
         Factorial.calculo(n);
     }    
