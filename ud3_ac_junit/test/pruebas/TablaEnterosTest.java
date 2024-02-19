@@ -4,6 +4,7 @@
  */
 package pruebas;
 
+import java.util.NoSuchElementException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,47 +17,50 @@ public class TablaEnterosTest {
     public TablaEnterosTest() {
     }
 
-    /**
-     * Test of sumaTabla method, of class TablaEnteros.
-     */
-    @Test
-    public void testSumaTabla() {
-        System.out.println("sumaTabla");
-        TablaEnteros instance = null;
-        int expResult = 0;
-        int result = instance.sumaTabla();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    	@Test
+	public void CP_sumaTabla() {
+		Integer[] tabla = { 1, 2, 3, 4, 5 };
+		TablaEnteros t = new TablaEnteros(tabla);
+		int resultado = t.sumaTabla();
+		int resultadoEsperado = 15;
+		assertEquals(resultadoEsperado, resultado);
+	}
 
-    /**
-     * Test of mayorTabla method, of class TablaEnteros.
-     */
-    @Test
-    public void testMayorTabla() {
-        System.out.println("mayorTabla");
-        TablaEnteros instance = null;
-        int expResult = 0;
-        int result = instance.mayorTabla();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+	@Test
+	public void CP_MayorTabla() {
+		Integer[] tabla = { 1, 7, 3, 9, 5 };
+		TablaEnteros t = new TablaEnteros(tabla);
+		int resultado = t.mayorTabla();
+		int resultadoEsperado = 9;
+		assertEquals(resultadoEsperado, resultado);
+	}
 
-    /**
-     * Test of posicionTabla method, of class TablaEnteros.
-     */
-    @Test
-    public void testPosicionTabla() {
-        System.out.println("posicionTabla");
-        int n = 0;
-        TablaEnteros instance = null;
-        int expResult = 0;
-        int result = instance.posicionTabla(n);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+	@Test
+	public void CP_PosicionTabla() {
+		Integer[] tabla = { 1, 2, 3, 4, 5 };
+		TablaEnteros t = new TablaEnteros(tabla);
+		int resultado = t.posicionTabla(2);
+		int resultadoEsperado = 1;
+		assertEquals(resultadoEsperado, resultado);
+	}
+
+	@Test(expected = NoSuchElementException.class)
+	public void CP_PosicionTablaNoExiste() {
+		Integer[] tabla = { 1, 2, 3, 4, 5 };
+		TablaEnteros t = new TablaEnteros(tabla);
+		t.posicionTabla(7);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void CP_TablaNull() {
+		Integer[] tabla = null;
+		new TablaEnteros(tabla);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void CP_TablaVacia() {
+		Integer[] tabla = {};
+		new TablaEnteros(tabla);
+	}
     
 }
