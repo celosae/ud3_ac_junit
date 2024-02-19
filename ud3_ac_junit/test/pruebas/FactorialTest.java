@@ -13,21 +13,23 @@ import static org.junit.Assert.*;
  */
 public class FactorialTest {
     
-    public FactorialTest() {
+    @Test
+    public void CP_Factorial_5() {
+	int n=5;
+	int resultado=Factorial.calculo(n);
+	int resultadoEsperado=120;
+	assertEquals(resultado,resultadoEsperado);
     }
 
-    /**
-     * Test of calculo method, of class Factorial.
-     */
-    @Test
-    public void testCalculo() {
-        System.out.println("calculo");
-        int n = 0;
-        int expResult = 0;
-        int result = Factorial.calculo(n);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    @Test(expected = IllegalArgumentException.class)
+    public void CP_FactorialNumeroNegativo() {
+	int n=-3;
+        Factorial.calculo(n);
     }
-    
+
+    @Test(expected = ArithmeticException.class)
+    public void testOverflow() {
+    	int n= 30;
+        Factorial.calculo(n);
+    }    
 }

@@ -13,22 +13,5 @@ import static org.junit.Assert.*;
  */
 public class FechaTest {
     
-    public FechaTest() {
-    }
-
-    /**
-     * Test of devuelveFecha method, of class Fecha.
-     */
-    @Test
-    public void testDevuelveFecha() {
-        System.out.println("devuelveFecha");
-        int tipo = 0;
-        Fecha instance = new Fecha();
-        String expResult = "";
-        String result = instance.devuelveFecha(tipo);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
+        
 }
